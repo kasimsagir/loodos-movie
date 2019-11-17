@@ -9,5 +9,6 @@ target 'Loodos Movie' do
   pod 'PKHUD', '~> 5.1'
   pod 'Kingfisher', '4.10.0'
   pod 'Firebase/Analytics'
+  pod 'Firebase/RemoteConfig'
 
 end
