@@ -14,9 +14,11 @@
 		862BB5BD2381866A00ED837C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5BB2381866A00ED837C /* Main.storyboard */; };
 		862BB5BF2381866E00ED837C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5BE2381866E00ED837C /* Assets.xcassets */; };
 		862BB5C22381866E00ED837C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5C02381866E00ED837C /* LaunchScreen.storyboard */; };
+		EE9601A0DF018D2BF2CC7114 /* Pods_Loodos_Movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3476BB0E5FB349585E6F2295 /* Pods_Loodos_Movie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3476BB0E5FB349585E6F2295 /* Pods_Loodos_Movie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loodos_Movie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		862BB5B02381866A00ED837C /* Loodos Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loodos Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		862BB5B32381866A00ED837C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		862BB5B52381866A00ED837C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		862BB5BE2381866E00ED837C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		862BB5C12381866E00ED837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		862BB5C32381866E00ED837C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3707569220DACBCFB439F9B /* Pods-Loodos Movie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos Movie.debug.xcconfig"; path = "Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie.debug.xcconfig"; sourceTree = "<group>"; };
+		BA691CF09CCC66A9D157DB2D /* Pods-Loodos Movie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos Movie.release.xcconfig"; path = "Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9601A0DF018D2BF2CC7114 /* Pods_Loodos_Movie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45E60F499F39FCE582704719 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3476BB0E5FB349585E6F2295 /* Pods_Loodos_Movie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		862BB5A72381866A00ED837C = {
 			isa = PBXGroup;
 			children = (
 				862BB5B22381866A00ED837C /* Loodos Movie */,
 				862BB5B12381866A00ED837C /* Products */,
+				DC3B0515CADA70D658EC51C2 /* Pods */,
+				45E60F499F39FCE582704719 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,16 @@
 			path = "Loodos Movie";
 			sourceTree = "<group>";
 		};
+		DC3B0515CADA70D658EC51C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3707569220DACBCFB439F9B /* Pods-Loodos Movie.debug.xcconfig */,
+				BA691CF09CCC66A9D157DB2D /* Pods-Loodos Movie.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 862BB5C62381866E00ED837C /* Build configuration list for PBXNativeTarget "Loodos Movie" */;
 			buildPhases = (
+				0791E7B86F7018860BCB6DA3 /* [CP] Check Pods Manifest.lock */,
 				862BB5AC2381866A00ED837C /* Sources */,
 				862BB5AD2381866A00ED837C /* Frameworks */,
 				862BB5AE2381866A00ED837C /* Resources */,
+				E88F9606ABACC2BD4EF29CC1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0791E7B86F7018860BCB6DA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loodos Movie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E88F9606ABACC2BD4EF29CC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		862BB5AC2381866A00ED837C /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		862BB5C72381866E00ED837C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3707569220DACBCFB439F9B /* Pods-Loodos Movie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +373,7 @@
 		};
 		862BB5C82381866E00ED837C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA691CF09CCC66A9D157DB2D /* Pods-Loodos Movie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

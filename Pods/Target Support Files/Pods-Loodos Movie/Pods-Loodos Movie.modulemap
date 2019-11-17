@@ -1,0 +1,6 @@
+framework module Pods_Loodos_Movie {
+  umbrella header "Pods-Loodos Movie-umbrella.h"
+
+  export *
+  module * { export * }
+}
