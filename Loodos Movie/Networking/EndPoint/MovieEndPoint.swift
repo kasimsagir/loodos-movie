@@ -25,7 +25,7 @@ extension MovieApi: EndPointType {
     
     var environmentBaseURL : String {
         switch NetworkManager.environment {
-        case .production: return "http://www.omdbapi.com/"
+            case .production: return "http://www.omdbapi.com/?apikey=\(NetworkManager.MovieAPIKey)"
         case .qa: return ""
         case .staging: return ""
         }

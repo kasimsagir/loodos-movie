@@ -40,6 +40,9 @@ class SplashViewController: UIViewController {
 
     // MARK: Start Button Action
     @IBAction func startAction(_ sender: UIButton) {
-        // TODO
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { timer in
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MasterViewController") else { return }
+            self.navigationController?.pushViewController(vc, animated: true)
+        })
     }
 }

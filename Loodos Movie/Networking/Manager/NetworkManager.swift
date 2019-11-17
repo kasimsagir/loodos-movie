@@ -31,9 +31,8 @@ struct NetworkManager {
     }()
     
     static let environment : NetworkEnvironment = .production
-    static let MovieAPIKey = "6d3e7e7b" // 17.11.2019 LOODOS-MOVIEDB API KEY
-    //static var posterBaseURL = ""
-    //static var posterHighConsBaseURL = ""
+    static let MovieAPIKey = "6d3e7e7b" // 17.11.2019 LOODOS- OMDB API KEY
+    static var posterBaseURL = "http://img.omdbapi.com/?apikey=\(MovieAPIKey)"
     let router = Router<MovieApi>()
     
     
