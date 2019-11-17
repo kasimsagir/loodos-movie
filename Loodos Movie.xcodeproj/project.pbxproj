@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,17 @@
 		862BB5BD2381866A00ED837C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5BB2381866A00ED837C /* Main.storyboard */; };
 		862BB5BF2381866E00ED837C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5BE2381866E00ED837C /* Assets.xcassets */; };
 		862BB5C22381866E00ED837C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5C02381866E00ED837C /* LaunchScreen.storyboard */; };
+		862BB5D82381880100ED837C /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5CB2381880100ED837C /* ParameterEncoding.swift */; };
+		862BB5D92381880100ED837C /* URLParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5CC2381880100ED837C /* URLParameterEncoding.swift */; };
+		862BB5DA2381880100ED837C /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5CD2381880100ED837C /* JSONParameterEncoder.swift */; };
+		862BB5DB2381880100ED837C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5CF2381880100ED837C /* NetworkManager.swift */; };
+		862BB5DC2381880100ED837C /* MovieEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D12381880100ED837C /* MovieEndPoint.swift */; };
+		862BB5DD2381880100ED837C /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D32381880100ED837C /* HTTPTask.swift */; };
+		862BB5DE2381880100ED837C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D42381880100ED837C /* HTTPMethod.swift */; };
+		862BB5DF2381880100ED837C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D52381880100ED837C /* Router.swift */; };
+		862BB5E02381880100ED837C /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D62381880100ED837C /* NetworkLogger.swift */; };
+		862BB5E12381880100ED837C /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862BB5D72381880100ED837C /* EndPointType.swift */; };
+		862BB5E623818AAE00ED837C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 862BB5E523818AAE00ED837C /* GoogleService-Info.plist */; };
 		EE9601A0DF018D2BF2CC7114 /* Pods_Loodos_Movie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3476BB0E5FB349585E6F2295 /* Pods_Loodos_Movie.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +39,17 @@
 		862BB5BE2381866E00ED837C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		862BB5C12381866E00ED837C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		862BB5C32381866E00ED837C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		862BB5CB2381880100ED837C /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		862BB5CC2381880100ED837C /* URLParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoding.swift; sourceTree = "<group>"; };
+		862BB5CD2381880100ED837C /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		862BB5CF2381880100ED837C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		862BB5D12381880100ED837C /* MovieEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEndPoint.swift; sourceTree = "<group>"; };
+		862BB5D32381880100ED837C /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		862BB5D42381880100ED837C /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		862BB5D52381880100ED837C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		862BB5D62381880100ED837C /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		862BB5D72381880100ED837C /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		862BB5E523818AAE00ED837C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B3707569220DACBCFB439F9B /* Pods-Loodos Movie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos Movie.debug.xcconfig"; path = "Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie.debug.xcconfig"; sourceTree = "<group>"; };
 		BA691CF09CCC66A9D157DB2D /* Pods-Loodos Movie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loodos Movie.release.xcconfig"; path = "Target Support Files/Pods-Loodos Movie/Pods-Loodos Movie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,14 +97,89 @@
 			children = (
 				862BB5B32381866A00ED837C /* AppDelegate.swift */,
 				862BB5B52381866A00ED837C /* SceneDelegate.swift */,
-				862BB5B72381866A00ED837C /* MasterViewController.swift */,
-				862BB5B92381866A00ED837C /* DetailViewController.swift */,
+				862BB5E2238188EE00ED837C /* ViewController */,
+				862BB5C92381880100ED837C /* Networking */,
 				862BB5BB2381866A00ED837C /* Main.storyboard */,
 				862BB5BE2381866E00ED837C /* Assets.xcassets */,
 				862BB5C02381866E00ED837C /* LaunchScreen.storyboard */,
+				862BB5E523818AAE00ED837C /* GoogleService-Info.plist */,
 				862BB5C32381866E00ED837C /* Info.plist */,
 			);
 			path = "Loodos Movie";
+			sourceTree = "<group>";
+		};
+		862BB5C92381880100ED837C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5CA2381880100ED837C /* Encoding */,
+				862BB5CE2381880100ED837C /* Manager */,
+				862BB5D02381880100ED837C /* EndPoint */,
+				862BB5D22381880100ED837C /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		862BB5CA2381880100ED837C /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5CB2381880100ED837C /* ParameterEncoding.swift */,
+				862BB5CC2381880100ED837C /* URLParameterEncoding.swift */,
+				862BB5CD2381880100ED837C /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		862BB5CE2381880100ED837C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5CF2381880100ED837C /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		862BB5D02381880100ED837C /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5D12381880100ED837C /* MovieEndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		862BB5D22381880100ED837C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5D32381880100ED837C /* HTTPTask.swift */,
+				862BB5D42381880100ED837C /* HTTPMethod.swift */,
+				862BB5D52381880100ED837C /* Router.swift */,
+				862BB5D62381880100ED837C /* NetworkLogger.swift */,
+				862BB5D72381880100ED837C /* EndPointType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		862BB5E2238188EE00ED837C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5E3238188FB00ED837C /* HomePageVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		862BB5E3238188FB00ED837C /* HomePageVC */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5B72381866A00ED837C /* MasterViewController.swift */,
+				862BB5E42381890300ED837C /* MovieDetailVC */,
+			);
+			path = HomePageVC;
+			sourceTree = "<group>";
+		};
+		862BB5E42381890300ED837C /* MovieDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				862BB5B92381866A00ED837C /* DetailViewController.swift */,
+			);
+			path = MovieDetailVC;
 			sourceTree = "<group>";
 		};
 		DC3B0515CADA70D658EC51C2 /* Pods */ = {
@@ -91,7 +188,6 @@
 				B3707569220DACBCFB439F9B /* Pods-Loodos Movie.debug.xcconfig */,
 				BA691CF09CCC66A9D157DB2D /* Pods-Loodos Movie.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				862BB5C22381866E00ED837C /* LaunchScreen.storyboard in Resources */,
+				862BB5E623818AAE00ED837C /* GoogleService-Info.plist in Resources */,
 				862BB5BF2381866E00ED837C /* Assets.xcassets in Resources */,
 				862BB5BD2381866A00ED837C /* Main.storyboard in Resources */,
 			);
@@ -212,8 +309,18 @@
 			files = (
 				862BB5B42381866A00ED837C /* AppDelegate.swift in Sources */,
 				862BB5B62381866A00ED837C /* SceneDelegate.swift in Sources */,
+				862BB5D82381880100ED837C /* ParameterEncoding.swift in Sources */,
+				862BB5DE2381880100ED837C /* HTTPMethod.swift in Sources */,
+				862BB5DF2381880100ED837C /* Router.swift in Sources */,
+				862BB5E02381880100ED837C /* NetworkLogger.swift in Sources */,
+				862BB5E12381880100ED837C /* EndPointType.swift in Sources */,
 				862BB5B82381866A00ED837C /* MasterViewController.swift in Sources */,
+				862BB5DB2381880100ED837C /* NetworkManager.swift in Sources */,
+				862BB5D92381880100ED837C /* URLParameterEncoding.swift in Sources */,
+				862BB5DD2381880100ED837C /* HTTPTask.swift in Sources */,
+				862BB5DA2381880100ED837C /* JSONParameterEncoder.swift in Sources */,
 				862BB5BA2381866A00ED837C /* DetailViewController.swift in Sources */,
+				862BB5DC2381880100ED837C /* MovieEndPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -359,7 +466,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U6KYB8M67;
 				INFOPLIST_FILE = "Loodos Movie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,7 +486,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2U6KYB8M67;
 				INFOPLIST_FILE = "Loodos Movie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

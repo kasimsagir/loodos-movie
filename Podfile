@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 target 'Loodos Movie' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,5 +8,6 @@ target 'Loodos Movie' do
   # Pods for Loodos Movie
   pod 'PKHUD', '~> 5.1'
   pod 'Kingfisher', '4.10.0'
+  pod 'Firebase/Analytics'
 
 end
