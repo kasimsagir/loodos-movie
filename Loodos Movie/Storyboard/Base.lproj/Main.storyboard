@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Master-->
+        <!--Navigation Controller-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -28,11 +28,11 @@
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="Loodos_Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="411" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="438" width="374" height="20.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -101,32 +101,23 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController storyboardIdentifier="MasterViewController" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Loodos_Movie" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="47.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="47.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <connections>
-                                    <segue destination="JEX-9P-axG" kind="showDetail" identifier="showDetail" id="i7w-EZ-ddD"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter a movie name" id="5JJ-KP-3gy">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="7bK-jq-Zjz" id="YOg-vD-kMs"/>
+                            </connections>
+                        </searchBar>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="kpb-A5-eev">
+                            <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>

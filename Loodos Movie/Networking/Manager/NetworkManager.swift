@@ -46,4 +46,68 @@ struct NetworkManager {
         default: return .failure(NetworkResponse.failed.rawValue)
         }
     }
+
+    func getMovies(query: String, page: Int, completion: @escaping (_ movie: [Movie]?, _ isEnd: Bool, _ responseError: String?, _ error: String?)->()){
+        router.request(.movie(query: query, page: page)) { data, response, error in
+
+            if error != nil {
+                completion(nil, false, nil, "Please check your network connection.")
+            }
+
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                    case .success:
+                        guard let responseData = data else {
+                            completion(nil, false, nil, NetworkResponse.noData.rawValue)
+                            return
+                        }
+                        do {
+                            print(responseData)
+                            let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                            print(jsonData)
+                            let apiResponse = try JSONDecoder().decode(MovieApiResponse.self, from: responseData)
+                            completion(apiResponse.movies, String(page) == apiResponse.totalResults, apiResponse.error, nil)
+                        }catch {
+                            print(error)
+                            completion(nil, false, nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    case .failure(let networkFailureError):
+                        completion(nil, false, nil, networkFailureError)
+                }
+            }
+        }
+    }
+
+    func getMovieDetail(movieId: String, completion: @escaping (_ movieDetail: MovieDetail?,_ error: String?)->()){
+        router.request(.movieDetail(id: movieId)) { data, response, error in
+
+            if error != nil {
+                completion(nil, "Please check your network connection.")
+            }
+
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                    case .success:
+                        guard let responseData = data else {
+                            completion(nil, NetworkResponse.noData.rawValue)
+                            return
+                        }
+                        do {
+                            print(responseData)
+                            let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                            print(jsonData)
+                            let apiResponse = try JSONDecoder().decode(MovieDetail.self, from: responseData)
+                            completion(apiResponse,nil)
+                        }catch {
+                            print(error)
+                            completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                    case .failure(let networkFailureError):
+                        completion(nil, networkFailureError)
+                }
+            }
+        }
+    }
 }

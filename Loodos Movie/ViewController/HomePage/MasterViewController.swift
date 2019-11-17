@@ -10,21 +10,66 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
-    private var movies: [Movie] = []
+    @IBOutlet weak var searchbar: UISearchBar!
+
+    private var movies: [Movie] = [] {
+        didSet {
+            if movies.count == 0 {
+                if searchText == "" {
+                    DispatchQueue.main.async {
+                        self.tableView.showTableViewEmptyLabel(message: "Enter a movie name.", containerView: self.tableView)
+                    }
+                }
+            }else {
+                DispatchQueue.main.async {
+                    self.tableView.hideTableViewEmptyMessage()
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    private var page = 1
+    private var isNewDataLoading = false
+    private var isEnd = false
+    private var searchText: String = "" {
+        didSet {
+            page = 1
+            isNewDataLoading = false
+            isEnd = false
+            NetworkManager.shared.router.cancel()
+            getMovies(searchText, page)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+    // MARK: Service
+    func getMovies(_ query: String, _ page: Int) {
+        if !isEnd {
+            NetworkManager.shared.getMovies(query: query, page: page) { (moviesResponse, isEnd, responseError, error) in
+                if let responseError = responseError {
+                    DispatchQueue.main.async {
+                        self.tableView.showTableViewEmptyLabel(message: responseError, containerView: self.tableView)
+                    }
+                }
+                if page == 1 {
+                    self.movies = moviesResponse ?? []
+                }else {
+                    self.movies.append(contentsOf: moviesResponse ?? [])
+                }
+                self.isEnd = isEnd
+                self.isNewDataLoading = false
+            }
+        }
     }
 
     // MARK: - Segues
@@ -32,7 +77,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
+                let object = movies[indexPath.row]
                 let controller = segue.destination as! DetailViewController
                 controller.detailItem = object
             }
@@ -46,30 +91,35 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return movies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let movie = movies[indexPath.row]
+        cell.setUI(movie)
+
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row+Constant.lazyLoadingBeforeCellCount >= movies.count {
+            if !isNewDataLoading{
+                isNewDataLoading = true
+                page = page+1
+                getMovies(searchText, page)
+            }
         }
     }
 
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
 }
 
+extension MasterViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+    }
+}

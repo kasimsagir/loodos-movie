@@ -13,12 +13,14 @@ struct MovieApiResponse : Codable {
     let movies : [Movie]?
     let totalResults : String?
     let response : String?
+    let error : String?
 
     enum CodingKeys: String, CodingKey {
 
         case movies = "Search"
         case totalResults = "totalResults"
         case response = "Response"
+        case error = "Error"
     }
 
     init(from decoder: Decoder) throws {
@@ -26,6 +28,7 @@ struct MovieApiResponse : Codable {
         movies = try values.decodeIfPresent([Movie].self, forKey: .movies)
         totalResults = try values.decodeIfPresent(String.self, forKey: .totalResults)
         response = try values.decodeIfPresent(String.self, forKey: .response)
+        error = try values.decodeIfPresent(String.self, forKey: .error)
     }
 }
 

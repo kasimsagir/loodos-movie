@@ -16,16 +16,15 @@ enum NetworkEnvironment {
 }
 
 public enum MovieApi {
-    case newMovies(page:Int)
-    case movieDetail(id:Int)
-    case movieCast(id:Int)
+    case movie(query: String, page:Int)
+    case movieDetail(id: String)
 }
 
 extension MovieApi: EndPointType {
     
     var environmentBaseURL : String {
         switch NetworkManager.environment {
-            case .production: return "http://www.omdbapi.com/?apikey=\(NetworkManager.MovieAPIKey)"
+            case .production: return "http://www.omdbapi.com/"
         case .qa: return ""
         case .staging: return ""
         }
@@ -38,12 +37,8 @@ extension MovieApi: EndPointType {
     
     var path: String {
         switch self {
-        case .newMovies:
+        case .movie(_, _), .movieDetail(_):
             return ""
-        case .movieDetail(let id):
-            return "\(id)"
-        case .movieCast(let id):
-            return "\(id)/credits"
         }
     }
     
@@ -53,15 +48,19 @@ extension MovieApi: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .newMovies(let page):
-            return .requestParameters(bodyParameters: nil,
-                                      bodyEncoding: .urlEncoding,
-                                      urlParameters: ["page":page,
-                                                      "api_key":NetworkManager.MovieAPIKey])
-        case .movieDetail(_), .movieCast(_):
-            return .requestParameters(bodyParameters: nil,
-                                      bodyEncoding: .urlEncoding,
-                                      urlParameters: ["api_key":NetworkManager.MovieAPIKey])
+            // case for send parameter(body)
+            case .movie(let query, let page):
+                return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: [
+                    "s": query,
+                    "page": page,
+                    "type": "movie",
+                    "apikey":NetworkManager.MovieAPIKey
+                ])
+            case .movieDetail(let id):
+                return .requestParameters(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: [
+                    "i": id,
+                    "apikey":NetworkManager.MovieAPIKey
+                ])
         default:
             return .request
         }

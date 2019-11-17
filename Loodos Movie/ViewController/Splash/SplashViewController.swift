@@ -16,7 +16,7 @@ class SplashViewController: UIViewController {
         if Reachability.isConnectedToNetwork() {
             getValuesFromFRC()
         }else {
-            self.showTryAgainAlert(title: "Hata", message: "Lütfen internet bağlantınızı kontrol ediniz.", isCancelable: false) { (_) in
+            self.showTryAgainAlert(title: "Error", message: "Please check your internet connection.", isCancelable: false) { (_) in
                 self.viewDidLoad()
             }
         }
@@ -42,7 +42,7 @@ class SplashViewController: UIViewController {
     @IBAction func startAction(_ sender: UIButton) {
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { timer in
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MasterViewController") else { return }
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.setViewControllers([vc], animated: true)
         })
     }
 }
