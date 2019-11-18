@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import PKHUD
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,5 +27,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    // ** APNS - Sertifikam olmadığından test edemedim ve devamını getiremedim **
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+
+        application.registerForRemoteNotifications()
+    }
+
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+}
