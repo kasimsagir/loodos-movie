@@ -26,7 +26,6 @@ class SplashViewController: UIViewController {
         if RCValues.shared.fetchComplete {
             updateButton()
         }
-
         RCValues.shared.loadingDoneCallback = updateButton
     }
 

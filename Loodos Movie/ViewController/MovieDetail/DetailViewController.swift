@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PKHUD
 
 class DetailViewController: UITableViewController {
 
@@ -52,7 +53,13 @@ class DetailViewController: UITableViewController {
 
     // MARK: Service
     func getDetails(_ movieId : String) {
+        DispatchQueue.main.async {
+            PKHUD.sharedHUD.show()
+        }
         NetworkManager.shared.getMovieDetail(movieId: movieId) { (movieDetailResponse, error) in
+            DispatchQueue.main.async {
+                PKHUD.sharedHUD.hide()
+            }
             if error != nil {
                 self.showAlert(title: "Error", message: error)
             }

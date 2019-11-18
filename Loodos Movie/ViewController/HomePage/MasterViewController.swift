@@ -30,12 +30,12 @@ class MasterViewController: UITableViewController {
             }
         }
     }
-    private var page = 1
+    private var page = Constant.pageStartIndex
     private var isNewDataLoading = false
     private var isEnd = false
     private var searchText: String = "" {
         didSet {
-            page = 1
+            page = Constant.pageStartIndex
             isNewDataLoading = false
             isEnd = false
             NetworkManager.shared.router.cancel()
@@ -46,9 +46,6 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
-        DispatchQueue.main.async {
-            self.searchbar.becomeFirstResponder()
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +61,7 @@ class MasterViewController: UITableViewController {
                         self.tableView.showTableViewEmptyLabel(message: responseError, containerView: self.tableView)
                     }
                 }
-                if page == 1 {
+                if page == Constant.pageStartIndex {
                     self.movies = moviesResponse ?? []
                 }else {
                     self.movies.append(contentsOf: moviesResponse ?? [])
@@ -120,7 +117,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return Constant.movieCellHeight
     }
 }
 

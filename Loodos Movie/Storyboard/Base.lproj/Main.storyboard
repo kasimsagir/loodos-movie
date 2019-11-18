@@ -128,7 +128,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uv-Ev-bWP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="288"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zJs-eB-l5S" customClass="MovieImageView" customModule="Hadi_Movie" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zJs-eB-l5S" customClass="MovieImageView" customModule="Loodos_Movie" customModuleProvider="target">
                                     <rect key="frame" x="8" y="167" width="150" height="225"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="zJs-eB-l5S" secondAttribute="height" multiplier="2:3" id="4qu-KN-9YG"/>
