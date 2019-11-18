@@ -46,6 +46,9 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        DispatchQueue.main.async {
+            self.searchbar.becomeFirstResponder()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -77,9 +80,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = movies[indexPath.row]
+                let movie = movies[indexPath.row]
                 let controller = segue.destination as! DetailViewController
-                controller.detailItem = object
+                controller.movieId = movie.imdbID
             }
         }
     }
@@ -110,6 +113,10 @@ class MasterViewController: UITableViewController {
                 getMovies(searchText, page)
             }
         }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
